@@ -120,7 +120,7 @@ var esBot = {
             twitLink: "https://twitter.com/GoodIdeaGaming",
             youtubeLink: "https://www.youtube.com/user/GoodIdeaGaming",
             website: "http://www.twich.tv/goodideagaming",
-            intervalMessages: ["Welcome to GIG's plug.dj. Please don't troll and know that extreme racism/NSFW songs are against ToS and will be skipped","DJ Unlock is coming at 25 queued DJs, if you want to join, get ready to smash that join button"],
+            intervalMessages: ["Welcome to GIG's plug.dj. Please don't troll and know that extreme racism/NSFW songs are against ToS and will be skipped","To give everyone a chance to join DJ waitlist, the waitlist will be locked when it reach 50 DJS. The list will be unlocked when there are 25 queued DJs left, if you want to join, get ready to smash that join button at that time"],
             messageInterval: 1,
             songstats: true,   
 			botautolock: false,
