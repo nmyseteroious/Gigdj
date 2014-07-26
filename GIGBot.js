@@ -77,7 +77,7 @@ var retrieveFromStorage = function(){
 var esBot = {
         version: "1.2.0",        
         status: false,
-        name: "basicBot",
+        name: "gigBot (basicBot)",
         creator: "Matthew/Edited by Sataday",
         loggedInID: null,
         scriptLink: "https://www.dropbox.com/s/dsxxvgizxq40w4a/GIGBot.js",
