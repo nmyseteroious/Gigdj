@@ -487,7 +487,10 @@ var esBot = {
                 }        
             },
             intervalMessage: function(){
-                var interval;
+                if((esBot.room.roomstats.songCount % 3) === 0 && esBot.status){
+					API.sendChat('/me Welcome to GIG`s plug.dj. Don`t forget to visit GIG`s steam at http://www.twich.tv/goodideagaming , subcribe @ https://www.youtube.com/user/GoodIdeaGaming , and follow @ https://twitter.com/GoodIdeaGaming :sparkling_heart:');
+				}						
+				var interval;
                 if(esBot.roomSettings.motdEnabled) interval = esBot.roomSettings.motdInterval;
                 else interval = esBot.roomSettings.messageInterval;
                 if((esBot.room.roomstats.songCount % interval) === 0 && esBot.status){
@@ -505,15 +508,15 @@ var esBot = {
 				var wslist = API.getWaitList();
                 if (esBot.roomSettings.botautolock) {
 					if (wslist.length < 26) {
-						API.sendChat('!joindisable')
-						API.sendChat('!unlock')
-						API.sendChat('The waitlist gate has been unlocked! Spam dem clicks nao!!')
-						esBot.roomSettings.botautolock = false
+						API.sendChat('!joindisable');
+						API.sendChat('!unlock');
+						API.sendChat('The waitlist gate has been unlocked! Spam dem clicks nao!! :fire:');
+						esBot.roomSettings.botautolock = false;
 					}
 				}
 				if (wslist.length > 48){
-					API.sendChat('!lock')
-					esBot.roomSettings.botautolock = true
+					API.sendChat('!lock');
+					esBot.roomSettings.botautolock = true;
 				}
             },      
         },        
@@ -2552,7 +2555,7 @@ var esBot = {
                                 if( !esBot.commands.executable(this.rank, chat) ) return void (0);
                                 else{
                                     if(typeof esBot.roomSettings.website === "string")
-                                        API.sendChat('/me Please visit GIGs twitch:' + esBot.roomSettings.website);
+                                        API.sendChat('/me Please visit GIG`s twitch:' + esBot.roomSettings.website);
                                 };                              
                         },
                 },
@@ -2565,7 +2568,7 @@ var esBot = {
                                 if( !esBot.commands.executable(this.rank, chat) ) return void (0);
                                 else{
                                     if(typeof esBot.roomSettings.youtubeLink === "string")
-                                        API.sendChat('/me [' + chat.from + '] Subscribe to GIG on youtube: ' + esBot.roomSettings.youtubeLink);                                
+                                        API.sendChat('/me [' + chat.from + '] Subscribe to GIG`s on youtube: ' + esBot.roomSettings.youtubeLink);                                
                                 };                              
                         },
                 },
