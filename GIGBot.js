@@ -40,7 +40,6 @@ var retrieveFromStorage = function(){
             API.chatLog('Retrieving previously stored data.');
 //            for(var prop in settings){
 //                esBot.roomSettings[prop] = settings[prop];
-
 //            }
             //esBot.roomSettings = settings;
             esBot.room.users = room.users;
@@ -69,11 +68,6 @@ var retrieveFromStorage = function(){
 //                var json_sett = JSON.parse(json);
 //                for(var prop in json_sett){
 //                    esBot.roomSettings[prop] = json_sett[prop];
-
-
-
-
-
 //                }
 //            }
 //        });
@@ -113,11 +107,9 @@ var esBot = {
                     ["unavailable", "The song you played was not available for some users. "] 
                 ],
             afkpositionCheck: 25,
-
             afkRankCheck: "bouncer",                
             motdEnabled: false,
             motdInterval: 1,
-
             motd: "Welcome to GIG Stream",                
             filterChat: true,
             etaRestriction: false,
@@ -125,7 +117,6 @@ var esBot = {
             opLink: null,
             rulesLink: null,
             themeLink: null,
-
             twitLink: "https://twitter.com/GoodIdeaGaming",
             youtubeLink: "https://www.youtube.com/user/GoodIdeaGaming",
             website: "http://www.twich.tv/goodideagaming",
@@ -510,6 +501,14 @@ var esBot = {
                     };                              
                     API.sendChat('/me ' + msg);
                 }
+				var wslist = API.getWaitList();
+                if (wslist.length < 26){
+					API.sendChat('!joindisable')
+					API.sendChat('!unlock')
+				}
+				if (wslist.length > 48){
+					API.sendChat('!lock')
+				}
             },      
         },        
         eventChat: function(chat){
@@ -1024,8 +1023,8 @@ var esBot = {
             esBot.room.autodisableInterval = setInterval(function(){esBot.room.autodisableFunc();}, 20 * 60 * 1000);
             esBot.loggedInID = API.getUser().id;            
             esBot.status = true;
-            API.sendChat('/cap 50');
-            API.setVolume(10);
+//            API.sendChat('/cap 50');
+//            API.setVolume(10);
             API.sendChat('/me ' + esBot.name + ' v' + esBot.version + ' online!');
         },                        
         commands: {        
@@ -1524,7 +1523,6 @@ var esBot = {
                                 };                              
                         },
                 },
-
 
                 twitCommand: {
                         rank: 'user',
