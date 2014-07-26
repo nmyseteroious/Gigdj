@@ -122,7 +122,8 @@ var esBot = {
             website: "http://www.twich.tv/goodideagaming",
             intervalMessages: ["Welcome to GIG's plug.dj. Please don't troll and know that extreme racism/NSFW songs are against ToS and will be skipped","DJ Unlock is coming at 25 queued DJs, if you want to join, get ready to smash that join button"],
             messageInterval: 1,
-            songstats: true,                      
+            songstats: true,   
+			botautolock: false,
         },        
         room: {        
             users: [],                
@@ -502,13 +503,17 @@ var esBot = {
                     API.sendChat('/me ' + msg);
                 }
 				var wslist = API.getWaitList();
-                if (wslist.length < 26){
-					API.sendChat('!joindisable')
-					API.sendChat('!unlock')
-					API.sendChat('The waitlist gate has been unlocked! Spam dem clicks nao!!')
+                if (esBot.roomSettings.botautolock) {
+					if (wslist.length < 26) {
+						API.sendChat('!joindisable')
+						API.sendChat('!unlock')
+						API.sendChat('The waitlist gate has been unlocked! Spam dem clicks nao!!')
+						esBot.roomSettings.botautolock = false
+					}
 				}
 				if (wslist.length > 48){
 					API.sendChat('!lock')
+					esBot.roomSettings.botautolock = true
 				}
             },      
         },        
@@ -848,7 +853,7 @@ var esBot = {
                     case '!usercommands':       esBot.commands.usercommandsCommand.functionality(chat, '!usercommands');            executed = true; break;
                     case '!voteratio':          esBot.commands.voteratioCommand.functionality(chat, '!voteratio');                  executed = true; break;
                     case '!welcome':            esBot.commands.welcomeCommand.functionality(chat, '!welcome');                      executed = true; break;
-                    case '!website':            esBot.commands.websiteCommand.functionality(chat, '!website');                      executed = true; break;
+                    case '!twitch':             esBot.commands.websiteCommand.functionality(chat, '!twitch');                       executed = true; break;
                     case '!youtube':            esBot.commands.youtubeCommand.functionality(chat, '!youtube');                      executed = true; break;
                     //case '!command': esBot.commands.commandCommand.functionality(chat, '!command'); executed = true; break;
                 }
