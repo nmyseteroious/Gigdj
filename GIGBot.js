@@ -488,7 +488,7 @@ var esBot = {
             },
             intervalMessage: function(){
                 if((esBot.room.roomstats.songCount % 3) === 0 && esBot.status){
-					API.sendChat('/me Welcome to GIG`s plug.dj. Don`t forget to visit GIG`s steam at http://www.twich.tv/goodideagaming , subcribe @ https://www.youtube.com/user/GoodIdeaGaming , and follow @ https://twitter.com/GoodIdeaGaming :sparkling_heart:');
+					API.sendChat('/me Welcome to GIG`s plug.dj. Don`t forget to visit GIG`s stream at http://www.twich.tv/goodideagaming , subscribe @ https://www.youtube.com/user/GoodIdeaGaming , and follow @ https://twitter.com/GoodIdeaGaming :sparkling_heart:');
 				}						
 				var interval;
                 if(esBot.roomSettings.motdEnabled) interval = esBot.roomSettings.motdInterval;
